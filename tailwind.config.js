@@ -19,6 +19,9 @@ module.exports = {
       // => @media (max-width: 639px) { ... }
     },
     extend: {
+      backgroundImage: {
+        blur: "url('/src/assets/blur.png')",
+      },
       colors: {
         green: {
           300: "#00B37E",
