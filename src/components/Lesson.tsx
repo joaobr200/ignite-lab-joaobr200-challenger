@@ -1,7 +1,7 @@
 import { CheckCircle, Lock } from "phosphor-react";
 import { isPast, format } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 interface LessonProps {
   title: string;
@@ -23,8 +23,8 @@ const Lesson = ({ title, slug, availableAt, type }: LessonProps) => {
   const lessonSelected = param.slug === slug;
 
   return (
-    <a
-      href={lessonIsAvailable ? `/ignite/lesson/${slug}` : "#"}
+    <Link
+      to={lessonIsAvailable ? `/ignite/lesson/${slug}` : "#"}
       className={`mb-8 p-4 group relative ${
         !lessonIsAvailable && "cursor-not-allowed pointer-events-none"
       }`}
@@ -70,7 +70,7 @@ const Lesson = ({ title, slug, availableAt, type }: LessonProps) => {
       {lessonSelected && (
         <div className="absolute top-[6.4rem] right-2 rotate-45 w-3 h-3 z-50 bg-green-500"></div>
       )}
-    </a>
+    </Link>
   );
 };
 
