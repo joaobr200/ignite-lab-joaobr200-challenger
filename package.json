@@ -1,7 +1,7 @@
 {
-  "name": "ignite-lab",
-  "private": true,
-  "version": "0.0.0",
+  "name": "ignite-lab-joaobr200",
+  "private": false,
+  "version": "1.0.0",
   "homepage": "https://joaobr200.github.io/ignite-lab-joaobr200-challenger/",
   "scripts": {
     "dev": "vite",

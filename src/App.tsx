@@ -9,7 +9,7 @@ const App = () => {
   return (
     <MenuContextProvider>
       <ApolloProvider client={client}>
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.url}>
           <Routes>
             <Route path="/" element={<Subscribe />} />
             <Route path="/ignite" element={<Ignite />} />
