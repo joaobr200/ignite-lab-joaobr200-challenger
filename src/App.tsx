@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ApolloProvider } from "@apollo/client";
 import { client } from "./lib/apollo";
 import Ignite from "./pages/Ignite";
-import Login from "./pages/login";
+import Subscribe from "./pages/subscribe";
 import { MenuContextProvider } from "./context/MenuContext";
 
 const App = () => {
@@ -11,7 +11,7 @@ const App = () => {
       <ApolloProvider client={client}>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Login />} />
+            <Route path="/" element={<Subscribe />} />
             <Route path="/ignite" element={<Ignite />} />
             <Route path="/ignite/lesson/:slug" element={<Ignite />} />
           </Routes>
