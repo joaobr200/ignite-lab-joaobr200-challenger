@@ -7,6 +7,8 @@ import { useParams } from "react-router-dom";
 const Ignite: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
 
+  console.log(import.meta.env.VITE_URI);
+
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
