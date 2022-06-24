@@ -2,6 +2,22 @@
 module.exports = {
   content: ["./src/**/*.{html,tsx}"],
   theme: {
+    screens: {
+      "2xl": { max: "1535px" },
+      // => @media (max-width: 1535px) { ... }
+
+      xl: { max: "1279px" },
+      // => @media (max-width: 1279px) { ... }
+
+      lg: { max: "1023px" },
+      // => @media (max-width: 1023px) { ... }
+
+      md: { max: "767px" },
+      // => @media (max-width: 767px) { ... }
+
+      sm: { max: "639px" },
+      // => @media (max-width: 639px) { ... }
+    },
     extend: {
       colors: {
         green: {
@@ -29,6 +45,20 @@ module.exports = {
         },
       },
       fontFamily: "Roboto, sans-serif",
+      animation: {
+        fadeIn: "fadeIn 100ms ease-in forwards",
+        fadeOut: "fadeOut 100ms ease-in forwards",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
+        fadeOut: {
+          "0%": { opacity: 1 },
+          "100%": { opacity: 0 },
+        },
+      },
     },
   },
   plugins: [],
