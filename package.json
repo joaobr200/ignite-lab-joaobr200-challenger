@@ -2,6 +2,7 @@
   "name": "ignite-lab-joaobr200",
   "private": false,
   "version": "1.0.0",
+  "license": "MIT",
   "homepage": "https://joaobr200.github.io/ignite-lab-joaobr200-challenger/",
   "scripts": {
     "dev": "vite",
