@@ -9,7 +9,7 @@ const App = () => {
   return (
     <MenuContextProvider>
       <ApolloProvider client={client}>
-        <BrowserRouter basename="/ignite-lab-joaobr200-challenger">
+        <BrowserRouter>
           <Routes>
             <Route path="/" element={<Subscribe />} />
             <Route path="/ignite" element={<Ignite />} />
