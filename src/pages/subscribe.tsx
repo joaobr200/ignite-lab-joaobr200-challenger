@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Footer from "../components/Footer";
 import { Ignite } from "../components/Icons";
 
@@ -45,6 +46,11 @@ const Subscribe: React.FC = () => {
               >
                 Garantir minha vaga
               </button>
+              <div className="text-center">
+                <Link to="/ignite" className="text-sm text-gray-400">
+                  Acessar ignite
+                </Link>
+              </div>
             </form>
           </div>
         </div>
