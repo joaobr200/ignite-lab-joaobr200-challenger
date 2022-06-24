@@ -6,3 +6,25 @@ body {
   @apply bg-gray-900 text-gray-100;
   -webkit-font-smoothing: antialiased;
 }
+
+.shimmer {
+  background-image: linear-gradient(
+    -90deg,
+    #29292e 0%,
+    #e1e1e6 50%,
+    #29292e 100%
+  );
+
+  background-size: 400% 400%;
+  animation: shimmerEffect 1.2s ease-in-out infinite;
+}
+
+@keyframes shimmerEffect {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: -135% 0%;
+  }
+}
