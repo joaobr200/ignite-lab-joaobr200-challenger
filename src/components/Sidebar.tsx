@@ -32,8 +32,8 @@ const Sidebar = () => {
 
   return (
     <aside
-      className={`w-[21.75rem] bg-gray-700 p-6 border-l border-gray-600 lg:absolute lg:right-0 lg:h-screen lg:pb-[100px] lg:overflow-auto   ${
-        isOpen ? "lg:animate-fadeIn" : "lg:animate-fadeOut"
+      className={`w-[21.75rem] bg-gray-700 p-6 border-l z-50 border-gray-600 lg:absolute lg:right-0  lg:h-screen lg:pb-[100px] lg:overflow-auto   ${
+        isOpen ? "lg:animate-fadeIn" : "lg:hidden"
       }`}
     >
       <span className="text-2xl font-bold text-start border-b border-gray-500 py-6 mb-6 block">

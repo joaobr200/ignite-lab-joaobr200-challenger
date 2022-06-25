@@ -34,7 +34,8 @@ const Lesson = ({ title, slug, availableAt, type }: LessonProps) => {
       </span>
       <div
         className={`flex flex-col gap-4 rounded border  border-gray-500 p-4 transition-colors group-hover:border group-hover:border-green-300 ${
-          lessonSelected && "bg-green-500"
+          lessonSelected &&
+          "bg-green-500 before:content-[''] before:absolute before:bg-green-500 before:w-3 before:h-3 before:top-[6.4rem] before:left-[-5px] before:z-[100] before:rotate-45"
         }`}
       >
         <header className="flex items-center justify-between">
@@ -67,9 +68,6 @@ const Lesson = ({ title, slug, availableAt, type }: LessonProps) => {
           {title}
         </strong>
       </div>
-      {lessonSelected && (
-        <div className="absolute top-[6.4rem] right-2 rotate-45 w-3 h-3 z-50 bg-green-500"></div>
-      )}
     </Link>
   );
 };

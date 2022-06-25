@@ -10,6 +10,8 @@ import {
 import { gql, useQuery } from "@apollo/client";
 import Footer from "./Footer";
 import VideoSkeleton from "./Shimmer/VideoSkeleton";
+import ButtonOutline from "./ButtonOutline";
+import Button from "./Button";
 
 const QUERY_LESSONS_BY_SLUG = gql`
   query LessonBySlug($slug: String) {
@@ -88,24 +90,16 @@ const Video = ({ lessonSlug }: VideoProps) => {
               {data?.lesson.description}
             </p>
           </div>
-          <div className="flex flex-col gap-4 md:items-center md:justify-center md:w-full">
-            <a
-              href=""
-              className="flex items-center justify-center gap-3 text-sm
-             text-gray-100 font-bold bg-green-500 py-4 px-6 rounded w-60 uppercase transition-colors hover:bg-green-700
-              md:w-full
-             "
-            >
+          <div className="flex flex-col gap-4 md:items-center md:justify-center w-full max-w-[270px] md:w-full">
+            <Button css="md:w-full">
               <DiscordLogo size={24} />
               Comunidade do Discord
-            </a>
-            <a
-              href=""
-              className="flex items-center justify-center gap-3 text-sm text-blue-500 font-bold border border-blue-500 bg-transparent py-4 px-6 rounded w-60 uppercase transition-colors hover:bg-blue-500 hover:text-gray-900 md:w-full"
-            >
+            </Button>
+            <ButtonOutline css="md:w-full">
+              {" "}
               <Lightning size={24} />
               ACESSE O DESAFIO
-            </a>
+            </ButtonOutline>
           </div>
         </div>
 

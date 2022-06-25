@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Button from "../components/Button";
 import Footer from "../components/Footer";
 import { Ignite } from "../components/Icons";
 
@@ -40,12 +41,7 @@ const Subscribe: React.FC = () => {
                   className="w-full h-[56px] rounded bg-gray-900 text-gray-400 p-5"
                 />
               </div>
-              <button
-                type="submit"
-                className="w-full py-4 px-6 text-white font-bold uppercase text-sm bg-green-500 rounded transition-colors hover:bg-green-700"
-              >
-                Garantir minha vaga
-              </button>
+              <Button>Garantir minha vaga</Button>
               <div className="text-center">
                 <Link to="/ignite" className="text-sm text-gray-400">
                   Acessar ignite
