@@ -23,10 +23,9 @@ const Subscribe: React.FC = () => {
         email: e.email,
       },
       onError: (e) => console.log(e.message),
-      onCompleted: () => {
-        navigate("/ignite");
-      },
     });
+
+    navigate("/ignite");
   }
 
   return (
