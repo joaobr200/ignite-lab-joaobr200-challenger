@@ -1,34 +1,12 @@
-import { gql, useQuery } from "@apollo/client";
 import { useContext } from "react";
 import { MenuContext } from "../context/MenuContext";
+import { useGetLessonsQuery } from "../graphql/generated";
 import Lesson from "./Lesson";
 import LessonSkeleton from "./Shimmer/LessonSkeleton";
 
-interface QueryLessonsResponse {
-  lessons: {
-    id: string;
-    title: string;
-    slug: string;
-    availableAt: Date;
-    lessonType: "live" | "class";
-  }[];
-}
-
-const QUERY_LESSOS = gql`
-  query {
-    lessons(orderBy: availableAt_ASC) {
-      id
-      lessonType
-      slug
-      title
-      availableAt
-    }
-  }
-`;
-
 const Sidebar = () => {
   const { isOpen } = useContext(MenuContext);
-  const { data, loading } = useQuery<QueryLessonsResponse>(QUERY_LESSOS);
+  const { data, loading } = useGetLessonsQuery();
 
   return (
     <aside

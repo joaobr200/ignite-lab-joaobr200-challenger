@@ -7,55 +7,22 @@ import {
   CaretRight,
   Image,
 } from "phosphor-react";
-import { gql, useQuery } from "@apollo/client";
 import Footer from "./Footer";
 import VideoSkeleton from "./Shimmer/VideoSkeleton";
 import ButtonOutline from "./ButtonOutline";
 import Button from "./Button";
-
-const QUERY_LESSONS_BY_SLUG = gql`
-  query LessonBySlug($slug: String) {
-    lesson(where: { slug: $slug }) {
-      id
-      title
-      videoId
-      description
-      teacher {
-        avatarURL
-        bio
-        name
-      }
-    }
-  }
-`;
-
-interface QueryLessonsBySlugResponse {
-  lesson: {
-    id: string;
-    title: string;
-    videoId: string;
-    description: string;
-    teacher: {
-      avatarURL: string;
-      bio: string;
-      name: string;
-    };
-  };
-}
+import { useGetLessonBySlugQuery } from "../graphql/generated";
 
 interface VideoProps {
   lessonSlug: string;
 }
 
 const Video = ({ lessonSlug }: VideoProps) => {
-  const { data, loading } = useQuery<QueryLessonsBySlugResponse>(
-    QUERY_LESSONS_BY_SLUG,
-    {
-      variables: {
-        slug: lessonSlug,
-      },
-    }
-  );
+  const { data, loading } = useGetLessonBySlugQuery({
+    variables: {
+      slug: lessonSlug,
+    },
+  });
 
   if (loading) {
     return <VideoSkeleton />;
@@ -64,7 +31,7 @@ const Video = ({ lessonSlug }: VideoProps) => {
   if (!data || !data.lesson) {
     return (
       <div>
-        <h1>Lessos nao encontrada</h1>
+        <h1>Lesson nao encontrada</h1>
       </div>
     );
   }
@@ -90,12 +57,12 @@ const Video = ({ lessonSlug }: VideoProps) => {
               {data?.lesson.description}
             </p>
           </div>
-          <div className="flex flex-col gap-4 md:items-center md:justify-center w-full max-w-[270px] md:w-full">
-            <Button css="md:w-full">
+          <div className="flex flex-col gap-4 md:items-center md:justify-center">
+            <Button css="w-[270px] md:w-full">
               <DiscordLogo size={24} />
               Comunidade do Discord
             </Button>
-            <ButtonOutline css="md:w-full">
+            <ButtonOutline css="w-[270px] md:w-full">
               {" "}
               <Lightning size={24} />
               ACESSE O DESAFIO
@@ -103,21 +70,23 @@ const Video = ({ lessonSlug }: VideoProps) => {
           </div>
         </div>
 
-        <div className="mt-11 flex items-center gap-4">
-          <img
-            src={data?.lesson.teacher.avatarURL}
-            alt="Teacher"
-            className="rounded-full w-16 border-2 border-blue-500"
-          />
-          <div className="flex flex-col ">
-            <h1 className="text-gray-200 font-bold text-2xl lg:text-xl md:text-lg">
-              {data?.lesson.teacher.name}
-            </h1>
-            <p className="text-gray-300 text-sm md:text-xs">
-              {data?.lesson.teacher.bio}
-            </p>
+        {data.lesson.teacher && (
+          <div className="mt-11 flex items-center gap-4">
+            <img
+              src={data?.lesson.teacher.avatarURL}
+              alt="Teacher"
+              className="rounded-full w-16 border-2 border-blue-500"
+            />
+            <div className="flex flex-col ">
+              <h1 className="text-gray-200 font-bold text-2xl lg:text-xl md:text-lg">
+                {data?.lesson.teacher.name}
+              </h1>
+              <p className="text-gray-300 text-sm md:text-xs">
+                {data?.lesson.teacher.bio}
+              </p>
+            </div>
           </div>
-        </div>
+        )}
 
         <div className="mt-20 grid grid-cols-2 gap-4 items-center justify-center m-auto md:grid-cols-1">
           <a

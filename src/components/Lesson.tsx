@@ -35,7 +35,7 @@ const Lesson = ({ title, slug, availableAt, type }: LessonProps) => {
       <div
         className={`flex flex-col gap-4 rounded border  border-gray-500 p-4 transition-colors group-hover:border group-hover:border-green-300 ${
           lessonSelected &&
-          "bg-green-500 before:content-[''] before:absolute before:bg-green-500 before:w-3 before:h-3 before:top-[6.4rem] before:left-[-5px] before:z-[100] before:rotate-45"
+          "bg-green-500 before:content-[''] before:absolute before:bg-green-500 before:w-3 before:h-3 before:top-[6.4rem] before:right-2 before:z-[100] before:rotate-45"
         }`}
       >
         <header className="flex items-center justify-between">

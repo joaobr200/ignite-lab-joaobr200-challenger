@@ -7,6 +7,10 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.button {
+  @apply flex items-center justify-center gap-[10px] py-4 px-6 text-sm text-gray-100 font-bold bg-green-500  rounded uppercase transition-colors hover:bg-green-700;
+}
+
 .shimmer {
   background-image: linear-gradient(
     -90deg,
