@@ -1,10 +1,34 @@
+import { CircleNotch } from "phosphor-react";
 import React from "react";
-import { Link } from "react-router-dom";
-import Button from "../components/Button";
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import { Ignite } from "../components/Icons";
+import { useCreateSubscribeMutation } from "../graphql/generated";
+
+interface IFormInputs {
+  name: string;
+  email: string;
+}
 
 const Subscribe: React.FC = () => {
+  const { register, handleSubmit } = useForm<IFormInputs>();
+  const [createSubscribe, { loading }] = useCreateSubscribeMutation();
+  const navigate = useNavigate();
+
+  function onSubmit(e: IFormInputs) {
+    createSubscribe({
+      variables: {
+        name: e.name,
+        email: e.email,
+      },
+      onError: (e) => console.log(e.message),
+      onCompleted: () => {
+        navigate("/ignite");
+      },
+    });
+  }
+
   return (
     <>
       <section className="flex flex-col items-center bg-blur bg-cover bg-no-repeat min-h-screen">
@@ -23,36 +47,44 @@ const Subscribe: React.FC = () => {
             </p>
           </div>
           <div className="flex flex-col items-center justify-center bg-gray-700 p-8 rounded">
-            <form className="flex flex-col gap-6 w-[327px] lg:max-w-[327px] lg:w-full">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex flex-col gap-6 w-[327px] lg:max-w-[327px] lg:w-full"
+            >
               <strong className="text-2xl text-gray-100">
                 Inscreva-se gratuitamente.
               </strong>
               <div className="flex flex-col gap-2">
                 <input
+                  {...register("name", { required: true })}
                   type="text"
                   name="name"
                   placeholder="Seu nome completo"
                   className="w-full h-[56px] rounded bg-gray-900 text-gray-400 p-5"
                 />
                 <input
+                  {...register("email", { required: true })}
                   type="email"
                   name="email"
                   placeholder="Digite seu email"
                   className="w-full h-[56px] rounded bg-gray-900 text-gray-400 p-5"
                 />
               </div>
-              <Button>Garantir minha vaga</Button>
-              <div className="text-center">
-                <Link to="/ignite" className="text-sm text-gray-400">
-                  Acessar ignite
-                </Link>
-              </div>
+              <button
+                disabled={loading ? true : false}
+                className={`button ${loading && "opacity-50"}`}
+                type="submit"
+                aria-label="Enviar inscrição da vaga"
+              >
+                Garantir minha vaga
+                {loading && <CircleNotch size={22} className="animate-spin" />}
+              </button>
             </form>
           </div>
         </div>
 
         <div>
-          <img src="/src/assets/stack.png" alt="Stack" className="p-8" />
+          <img src="/assets/stack.png" alt="Stack" className="p-8" />
         </div>
       </section>
       <Footer />
