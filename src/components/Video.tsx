@@ -1,4 +1,4 @@
-import { Player, Youtube, DefaultUi } from "@vime/react";
+import Youtube from "react-youtube";
 
 import {
   DiscordLogo,
@@ -40,10 +40,7 @@ const Video = ({ lessonSlug }: VideoProps) => {
     <section className="relative">
       <div className="bg-black">
         <div className="w-full h-full max-w-[1100px] max-h-[60vh] aspect-video m-auto">
-          <Player>
-            <Youtube videoId={data?.lesson.videoId} />
-            <DefaultUi />
-          </Player>
+          <Youtube videoId={data?.lesson.videoId} title={data.lesson.title} />
         </div>
       </div>
 
