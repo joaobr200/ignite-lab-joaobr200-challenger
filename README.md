@@ -41,6 +41,18 @@ Projeto já estava completo, com todas funcionalidades propostas funcionando, ma
 
 Ela simplesmente se conecta com sua API graphql e gera um arquivo no seu projeto com toda a tipagem do seus schema e tambem podemos criar as queries e mutation em arquivos .graphql que ele mapeia todas essas queries e automaticamente ele criar hooks de acordo com a querie ou mutation criada nesses arquivos, facilidando leitura, manutenção e usabilidade do código.
 
+## 🔥Desafio Master
+
+foi deixado como desafio adicionar a aplicação um autentição pelo github para o usuário ter acesso a plataforma de aulas.
+
+Codei a aplicação toda do zero, mas agora utilizando next, foi implementando recursos bem avaçandos, como SSG para buscar as aulas no server-side e gerar os paths estáticos de cada aula.
+
+A lista de aula foi deixado padrão, sempre que usuário acessa a plataforma ele busca na API e se adicionarmos uma nova aula, elá sera listado e usuário poderá acessa=lá tranquilamente, pois o fallback está ativado e ela sera buscado na API.
+
+Para autentição usei a lib [next-auth](https://next-auth.js.org), como provider o github, sendo assim usuário so poderá acessar a plataforma caso ele esteja logado e autenticado pelo github.
+
+REPOSITÓRIO DO DESAFIO: [ignite-lab-joaobr200-next](https://github.com/joaobr200/ignite-lab-joaobr200-next)
+
 ## 🙅🏽‍♂️ Author
 
 - **João Vitor** - [Joaobr200](https://github.com/joaobr200)
