@@ -40,7 +40,12 @@ const Video = ({ lessonSlug }: VideoProps) => {
     <section className="relative">
       <div className="bg-black">
         <div className="w-full h-full max-w-[1100px] max-h-[60vh] aspect-video m-auto">
-          <Youtube videoId={data?.lesson.videoId} title={data.lesson.title} />
+          <Youtube
+            videoId={data?.lesson.videoId}
+            title={data.lesson.title}
+            iframeClassName="w-full h-full"
+            className="h-full w-full"
+          />
         </div>
       </div>
 
