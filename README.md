@@ -29,6 +29,10 @@ Foi terminada toda parte de estilização e conexao com a API do graphcms para b
 
 Foi deixado como desafio fazer a responsabilidade do site, que até então não tinha nenhuma, aceitei o desafio e conclui toda responsabilidade do site, junto com um menu dropdown para as lessons e para melhorar UI do site, no momento de loading das lessons e das aulas criei os skeleton dos respectivos components e adicionei o shimmer effect, para usuário ter a experiência de loading.
 
+<div align="center">
+  <img src="/.github/responsive.gif" />
+</div>
+
 ## 🔥 Quarto dia do desafio 23/06/2022
 
 Criamos a página inicial do projeto aonde contem um formulário para o usuário fazer a inscrição no projeto, para manipulação dos input do formulário usei a lib react hook form, nunca tinha usado ela somente a Formik, achei uma lib muito boa para lidar com formulários.
