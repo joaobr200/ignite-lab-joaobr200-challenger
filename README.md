@@ -31,6 +31,8 @@ Foi deixado como desafio fazer a responsabilidade do site, que até então não 
 
 <div align="center">
   <img src="/.github/responsive.gif" />
+  <img src="/.github/shimmer.gif" />
+  <img src="/.github/shimmer_2.gif" />
 </div>
 
 ## 🔥 Quarto dia do desafio 23/06/2022
